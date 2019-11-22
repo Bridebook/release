@@ -218,32 +218,32 @@ const orderCommits = async (commits, tags, exists) => {
 	// By default, nothing is there yet
 	let answers = {};
 
-	if (choices) {
-		console.log(
-			`${chalk.green('!')} Please enter the type of change for each commit:\n`
-		);
+	// if (choices) {
+	// 	console.log(
+	// 		`${chalk.green('!')} Please enter the type of change for each commit:\n`
+	// 	);
 
-		answers = await inquirer.prompt(questions);
+	// 	answers = await inquirer.prompt(questions);
 
-		for (const answer in answers) {
-			if (!{}.hasOwnProperty.call(answers, answer)) {
-				continue;
-			}
+	// 	for (const answer in answers) {
+	// 		if (!{}.hasOwnProperty.call(answers, answer)) {
+	// 			continue;
+	// 		}
 
-			const type = answers[answer];
-			const {message} = questions.find(question => question.name === answer);
+	// 		const type = answers[answer];
+	// 		const {message} = questions.find(question => question.name === answer);
 
-			answers[answer] = {
-				type,
-				message
-			};
-		}
-	}
+	// 		answers[answer] = {
+	// 			type,
+	// 			message
+	// 		};
+	// 	}
+	// }
 
-	// Update the spinner status
-	if (choices) {
-		console.log('');
-	}
+	// // Update the spinner status
+	// if (choices) {
+	// 	console.log('');
+	// }
 
 	createSpinner('Generating the changelog');
 
