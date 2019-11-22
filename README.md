@@ -2,10 +2,9 @@ Modified version to ignore all choices and automatically output all messages sta
 
 
 
-Uninstall the package if it's already installed: `yarn global remove release`
+* Uninstall the package if it's already installed: `yarn global remove release`
 
-
-Link the package to the global module directory: `yarn link`
+* Link the package to the global module directory: `yarn link`
 
 
 DOCS: https://github.com/zeit/release
