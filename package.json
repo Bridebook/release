@@ -11,7 +11,7 @@
     "bin",
     "lib"
   ],
-  "repository": "zeit/release",
+  "repository": "Bridebook/release",
   "keywords": [
     "github",
     "releases",
