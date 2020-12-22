@@ -135,6 +135,9 @@ const createRelease = async (tag, changelog, exists) => {
 	}
 
 	console.log(`\n${chalk.bold('Done!')} ${releaseURL}`);
+	const reminder = `${chalk.bold('IMPORTANT!')} Don't forget to update and redeploy any Cloud Functions (in the \
+	${chalk.italic('bb-firebase')} repository) relevant to your schema changes.`;
+	console.log(`\n${chalk.yellow(reminder)}`);
 };
 
 const orderCommits = async (commits, tags, exists) => {
