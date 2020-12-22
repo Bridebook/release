@@ -4,7 +4,6 @@
 const args = require('args');
 const chalk = require('chalk');
 const semVer = require('semver');
-const inquirer = require('inquirer');
 const open = require('opn');
 const checkForUpdate = require('update-check');
 const {red} = require('chalk');
@@ -216,7 +215,7 @@ const orderCommits = async (commits, tags, exists) => {
 	global.spinner = false;
 
 	// By default, nothing is there yet
-	let answers = {};
+	const answers = {};
 
 	// if (choices) {
 	// 	console.log(
