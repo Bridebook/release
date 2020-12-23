@@ -134,10 +134,14 @@ const createRelease = async (tag, changelog, exists) => {
 		} catch (err) {}
 	}
 
-	console.log(`\n${chalk.bold('Done!')} ${releaseURL}`);
-	const reminder = `${chalk.bold('IMPORTANT!')} Don't forget to update and redeploy any Cloud Functions (in the \
-	${chalk.italic('bb-firebase')} repository) relevant to your schema changes.`;
-	console.log(`\n${chalk.yellow(reminder)}`);
+	console.log(`\n${chalk.bold('Done!')} ${releaseURL}\n`);
+	let reminder = `${chalk.bold('IMPORTANT!')} Don't forget to:\n`;
+	reminder += ` - Update and redeploy any BigQuery backup Cloud Functions (in the ${chalk.italic('bb-firebase')} \
+	repository) relevant to your schema changes.\n`;
+	reminder += ` - Update and redeploy Firestore rules (in the ${chalk.italic('bb-firebase')} repository) relevant \
+	to your schema changes.\n`;
+	reminder += ` - Redeploy any APIs that may have also been changed.\n`;
+	console.log(`${chalk.yellow(reminder)}\n`);
 };
 
 const orderCommits = async (commits, tags, exists) => {
