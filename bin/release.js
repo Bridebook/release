@@ -124,22 +124,21 @@ const createRelease = async (tag, changelog, exists) => {
 	// Wait for the GitHub UI to render the release
 	await sleep(500);
 
-	if (!showUrl) {
+	if (showUrl) {
+		console.log(`\n${chalk.bold('Done!')} ${releaseURL}\n`);
+	} else {
 		try {
 			open(releaseURL, {wait: false});
 			console.log(`\n${chalk.bold('Done!')} Opened release in browser...`);
-
-			return;
 		// eslint-disable-next-line no-empty
 		} catch (err) {}
 	}
 
-	console.log(`\n${chalk.bold('Done!')} ${releaseURL}\n`);
 	let reminder = `${chalk.bold('IMPORTANT!')} Don't forget to:\n`;
 	reminder += ` - Update and redeploy any BigQuery backup Cloud Functions (in the ${chalk.italic('bb-firebase')} \
 	repository) relevant to your schema changes.\n`;
-	reminder += ` - Update and redeploy Firestore rules (in the ${chalk.italic('bb-firebase')} repository) relevant \
-	to your schema changes.\n`;
+	reminder += ` - Update and redeploy Firestore rules (in the ${chalk.italic('bb-firebase')} repository) relevant `;
+	reminder += `to your schema changes.\n`;
 	reminder += ` - Redeploy any APIs that may have also been changed.\n`;
 	console.log(`${chalk.yellow(reminder)}\n`);
 };
